@@ -1,0 +1,42 @@
+images {
+  image: "/main/images/Object/Tree_1.png"
+}
+images {
+  image: "/main/images/Object/Tree_2.png"
+}
+images {
+  image: "/main/images/Object/Tree_3.png"
+}
+images {
+  image: "/main/images/Object/Bush (1).png"
+}
+images {
+  image: "/main/images/Object/Bush (2).png"
+}
+images {
+  image: "/main/images/Object/Bush (3).png"
+}
+images {
+  image: "/main/images/Object/Bush (4).png"
+}
+images {
+  image: "/main/images/Object/Crate.png"
+}
+images {
+  image: "/main/images/Object/Mushroom_1.png"
+}
+images {
+  image: "/main/images/Object/Mushroom_2.png"
+}
+images {
+  image: "/main/images/Object/Sign_1.png"
+}
+images {
+  image: "/main/images/Object/Sign_2.png"
+}
+images {
+  image: "/main/images/Object/Stone.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
