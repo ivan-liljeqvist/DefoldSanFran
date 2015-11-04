@@ -17,6 +17,13 @@ layers {
     h_flip: 0
     v_flip: 0
   }
+  cell {
+    x: 1
+    y: 0
+    tile: 0
+    h_flip: 0
+    v_flip: 0
+  }
 }
 layers {
   id: "platformLayer"

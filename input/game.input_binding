@@ -1,0 +1,12 @@
+key_trigger {
+  input: KEY_RIGHT
+  action: "walkright"
+}
+key_trigger {
+  input: KEY_LEFT
+  action: "walkleft"
+}
+key_trigger {
+  input: KEY_SPACE
+  action: "jump"
+}

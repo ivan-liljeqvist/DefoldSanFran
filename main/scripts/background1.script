@@ -10,8 +10,24 @@ function update(self, dt)
 	
 	
 	if(p.x>1000)then
-		p.x=0;
+		--p.x=0;
+	elseif(p.x<-1000)then
+		--p.x=0;
 	end
 	go.set_position(p);
 	
+end
+
+function on_message(self, message_id, message, sender)
+	
+	if message_id == hash("moveLeft") then
+		local p = go.get_position()
+		p.x = p.x - 1
+		go.set_position(p);
+	elseif message_id == hash("moveRight") then
+		local p = go.get_position()
+		p.x = p.x + 1
+		go.set_position(p);
+	end
+
 end
