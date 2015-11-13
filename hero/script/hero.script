@@ -131,15 +131,38 @@ function update(self, dt)
 
 	    -- calculate the translation this frame by integrating the velocity
 	local dp = (v0 + self.velocity) * dt * 0.5
-	-- apply it to the player character
-	go.set_position(go.get_position() + dp)
-
-	    	
-	    	
-    -- update the jump timer
-    if self.touch_jump_timer > 0 then
-        self.touch_jump_timer = self.touch_jump_timer - dt
+	
+	local currentPos=go.get_position();
+	local newX=go.get_position().x;
+    local xDiff=(go.get_position().x+dp.x)-lastX;
+    
+    local isMoving=false;
+    local movingRight=false;
+    local movingLeft=false;
+    
+    if(xDiff~=0)then
+    	isMoving=true;
     end
+    
+    if(xDiff>1)then
+    	movingRight=true;
+    end
+    
+    if(xDiff<-1)then
+    	movingLeft=true;
+    end
+	
+	local playerWillNotGoTooFarRight=(currentPos.x+dp.x)<screen_width*0.8;
+	local playerWillNotGoTooFarLeft=(currentPos.x-dp.x)>screen_width*0.11;
+	
+	
+	if ((not playerWillNotGoTooFarRight and movingRight) or (not playerWillNotGoTooFarLeft and movingLeft)) then
+		-- apply it to the player character
+		dp.x=0;
+	end
+
+	go.set_position(go.get_position() + dp)    	
+    
     
     update_animations(self)
     
@@ -148,16 +171,12 @@ function update(self, dt)
     self.move_input = 0
     self.ground_contact = false
     
-    local newX=go.get_position().x;
-    local xDiff=newX-lastX;
     
-    if(xDiff~=0)then
-	    if(xDiff>1)then
-	    	
-		    --msg.post("/cloudLayer1","moveLeft");
+    
+    if(isMoving)then
+	    if(movingRight)then
 		    msg.post("/platform","movePlatformLeft");
-		elseif(xDiff<-1)then
-		    --msg.post("/cloudLayer1","moveRight");
+		elseif(movingLeft)then
 		     msg.post("/platform","movePlatformRight");
 		end
 	end
@@ -237,14 +256,17 @@ function flipChatacter(flip)
 end
 
 local function jump(self)
+
+	print("jump!");
+	
     -- only allow jump from ground
     -- (extend this with a counter to do things like double-jumps)
-    if self.ground_contact then
+    --if self.ground_contact then
         -- set take-off speed
         self.velocity.y = jump_takeoff_speed
         -- play animation
         play_animation(self, anim_jump)
-    end
+    --end
 end
 
 local function abort_jump(self)

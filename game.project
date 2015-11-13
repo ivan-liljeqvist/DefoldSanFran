@@ -4,7 +4,7 @@ version = 0.1
 
 [bootstrap]
 main_collection = /main/main.collectionc
-render = /main/rendering/myrender.renderc
+render = /rendering/myrender.renderc
 
 [input]
 game_binding = /input/game.input_bindingc

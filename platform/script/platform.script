@@ -17,13 +17,13 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("movePlatformRight") then
 	
         local pos = go.get_position();
-        pos.x=pos.x+2;
+        pos.x=pos.x+4;
         go.set_position(pos);
     
     elseif message_id==hash("movePlatformLeft") then
         
         local pos = go.get_position();
-        pos.x=pos.x-2;
+        pos.x=pos.x-4;
         go.set_position(pos);
         
     end
