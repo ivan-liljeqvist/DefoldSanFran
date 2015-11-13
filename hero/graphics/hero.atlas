@@ -1,0 +1,14 @@
+animations {
+  id: "walk"
+  images {
+    image: "/hero/graphics/images/red riding hood.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+}
+animations {
+  id: "stand"
+  images {
+    image: "/hero/graphics/images/red riding hood.png"
+  }
+}

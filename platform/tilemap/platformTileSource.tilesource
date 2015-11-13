@@ -1,0 +1,19 @@
+image: "/platform/paperTile6.png"
+tile_width: 130
+tile_height: 73
+tile_margin: 0
+tile_spacing: 0
+collision: "/platform/paperTile6.png"
+material_tag: "tile"
+convex_hulls {
+  index: 0
+  count: 16
+  collision_group: "platform"
+}
+collision_groups: "default"
+collision_groups: "platform"
+animations {
+  id: "anim"
+  start_tile: 1
+  end_tile: 1
+}

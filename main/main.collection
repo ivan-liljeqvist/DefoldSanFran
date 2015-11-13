@@ -1,17 +1,11 @@
 name: "main"
 instances {
-  id: "cloudLayer1"
-  prototype: "/main/gameObjects/cloudLayer1.go"
+  id: "camera"
+  prototype: "/camera/camera.go"
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
+    x: -24.177694
+    y: 20.519445
+    z: 2.0
   }
   scale3 {
     x: 1.0
@@ -21,17 +15,11 @@ instances {
 }
 instances {
   id: "hero"
-  prototype: "/main/gameObjects/hero.go"
+  prototype: "/hero/hero.go"
   position {
     x: 135.05788
     y: 186.70824
-    z: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
+    z: 2.0
   }
   scale3 {
     x: 1.0
@@ -41,17 +29,9 @@ instances {
 }
 instances {
   id: "platform"
-  prototype: "/main/gameObjects/platform.go"
+  prototype: "/platform/platform.go"
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
+    z: 1.0
   }
   scale3 {
     x: 1.0
@@ -59,4 +39,3 @@ instances {
     z: 1.0
   }
 }
-scale_along_z: 0

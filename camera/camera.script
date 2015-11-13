@@ -1,0 +1,29 @@
+-- camera.script
+--
+function init(self)
+	msg.post("#camera", "acquire_camera_focus")
+    -- Track current position and where someone told us to look at.
+	self.pos = go.get_world_position()
+	self.look_at = self.pos
+    -- Store measured speed
+	self.speed = 0
+end
+function update(self, dt)
+	
+end
+function on_message(self, message_id, message, sender)
+    -- This camera reacts to "look_at" messages with a position as where
+    -- to go.
+    local pos=go.get_position();
+    
+	if message_id == hash("look_at") then
+		self.look_at = message.position
+		
+	elseif message_id == hash("moveCameraRight")then
+		pos.x=pos.x+4;
+	elseif message_id == hash("moveCameraLeft")then
+		pos.x=pos.x-4;
+	end
+	
+	go.set_position(pos);
+end
