@@ -28,6 +28,9 @@ local anim_idle = hash("stand")
 local anim_jump = hash("walk")
 local anim_fall = hash("walk")
 
+local cameraScreen=1;
+local screen_width = tonumber(sys.get_config("display.width"));
+
 function init(self)
     -- Add initialization code here
     -- Remove this function if not needed
@@ -125,7 +128,7 @@ function update(self, dt)
     -- calculate the new velocity by adding the velocity change
     self.velocity = self.velocity + dv
     
-    local screen_width = tonumber(sys.get_config("display.width"))
+    
     
     
 
@@ -136,30 +139,7 @@ function update(self, dt)
 	local newX=go.get_position().x;
     local xDiff=(go.get_position().x+dp.x)-lastX;
     
-    local isMoving=false;
-    local movingRight=false;
-    local movingLeft=false;
-    
-    if(xDiff~=0)then
-    	isMoving=true;
-    end
-    
-    if(xDiff>1)then
-    	movingRight=true;
-    end
-    
-    if(xDiff<-1)then
-    	movingLeft=true;
-    end
-	
-	local playerWillNotGoTooFarRight=(currentPos.x+dp.x)<screen_width*0.8;
-	local playerWillNotGoTooFarLeft=(currentPos.x-dp.x)>screen_width*0.11;
-	
-	
-	if ((not playerWillNotGoTooFarRight and movingRight) or (not playerWillNotGoTooFarLeft and movingLeft)) then
-		-- apply it to the player character
-		dp.x=0;
-	end
+  
 
 	go.set_position(go.get_position() + dp)    	
     
@@ -171,17 +151,36 @@ function update(self, dt)
     self.move_input = 0
     self.ground_contact = false
     
+    if(self.touch_jump_timer >0)then
+    	self.touch_jump_timer =self.touch_jump_timer -1;
+    end
     
     
-    if(isMoving)then
-	    if(movingRight)then
-		    msg.post("/platform","movePlatformLeft");
-		elseif(movingLeft)then
-		     msg.post("/platform","movePlatformRight");
-		end
-	end
+    move_camera();
      
 	
+end
+
+--[[
+	move_camera()
+	
+	Checks if player moved outside the current cameraScreen.
+	cameraScreen is an integer indicating how many screens from the start the player has moved;
+	
+--]]
+
+function move_camera()
+	local currentPosX=go.get_position().x;
+	--player has moved right, move camera one screen to the right
+	if(currentPosX>screen_width*cameraScreen)then
+		cameraScreen=cameraScreen+1;
+		msg.post("/camera", "moveCameraRight");
+		
+	--player has moved left, move camera one screen to the left
+	elseif(currentPosX<(screen_width*cameraScreen)-screen_width)then
+		cameraScreen=cameraScreen-1;
+		msg.post("/camera", "moveCameraLeft");
+	end
 end
 
 local function handle_geometry_contact(self, normal, distance)
