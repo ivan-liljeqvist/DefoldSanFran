@@ -1,0 +1,4 @@
+tile_set: "/background/graphics/background.atlas"
+default_animation: "forest"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

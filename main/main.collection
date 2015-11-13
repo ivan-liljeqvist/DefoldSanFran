@@ -1,5 +1,45 @@
 name: "main"
 instances {
+  id: "background"
+  prototype: "/background/background.go"
+  position {
+    x: 387.73343
+    y: 350.56317
+    z: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.3
+    y: 2.0
+    z: 1.0
+  }
+}
+instances {
+  id: "background1"
+  prototype: "/background/background.go"
+  position {
+    x: 1603.2672
+    y: 343.15137
+    z: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.3
+    y: 2.0
+    z: 1.0
+  }
+}
+instances {
   id: "camera"
   prototype: "/camera/camera.go"
   position {
@@ -23,8 +63,8 @@ instances {
   id: "hero"
   prototype: "/hero/hero.go"
   position {
-    x: 747.44214
-    y: 252.91194
+    x: 445.8063
+    y: 129.51546
     z: 2.0
   }
   rotation {
