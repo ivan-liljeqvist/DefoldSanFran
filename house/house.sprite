@@ -1,0 +1,4 @@
+tile_set: "/house/house.atlas"
+default_animation: "houseImage"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

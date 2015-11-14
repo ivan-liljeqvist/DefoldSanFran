@@ -65,6 +65,26 @@ instances {
   position {
     x: 445.8063
     y: 129.51546
+    z: 1.5
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "house"
+  prototype: "/house/house.go"
+  position {
+    x: 787.8199
+    y: 504.9903
     z: 2.0
   }
   rotation {
@@ -85,7 +105,7 @@ instances {
   position {
     x: 0.0
     y: 0.0
-    z: 1.0
+    z: 2.0
   }
   rotation {
     x: 0.0

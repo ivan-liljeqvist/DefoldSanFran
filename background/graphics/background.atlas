@@ -1,6 +1,9 @@
 images {
   image: "/background/graphics/images/forest.jpg"
 }
+images {
+  image: "/background/graphics/images/bg-gray-origami.jpg"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
