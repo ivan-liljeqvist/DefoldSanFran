@@ -32,6 +32,9 @@ local cameraScreen=1;
 local screen_width = tonumber(sys.get_config("display.width"));
 
 function init(self)
+
+
+	
     -- Add initialization code here
     -- Remove this function if not needed
     msg.post(".", "acquire_input_focus")
@@ -157,8 +160,24 @@ function update(self, dt)
     
     
     move_camera();
+    updateRelativePosition();
+    
+    msg.post("/gun", "followHero", {heroPosition = go.get_position()})
+    
+    
      
 	
+end
+
+function updateRelativePosition()
+
+	local screen_width=tonumber(sys.get_config("display.width"));
+    local screen_height=tonumber(sys.get_config("display.height"));
+    local relativePositionX=1-math.abs((go.get_position().x-(screen_width*cameraScreen))/screen_width)
+    local relativePositionY=math.abs((go.get_position().y-(screen_height))/screen_height)
+    
+    msg.post("/foreground", "updateHeroRelativePosition", {heroRelativePosition = vmath.vector4(relativePositionX,relativePositionY,0.0,0.0)})
+    
 end
 
 --[[
@@ -227,6 +246,7 @@ function on_message(self, message_id, message, sender)
     if message_id==hash("walkleft")then
    		if isWalking==false then	
     		msg.post("#sprite", "play_animation", {id = hash("walk")})
+    		msg.post("/gun","flipGun",{flipOrUnflip=true})
     		
     		isWalking=true
     		
@@ -237,6 +257,7 @@ function on_message(self, message_id, message, sender)
     	if isWalking==false then
     	
     		msg.post("#sprite", "play_animation", {id = hash("walk")})
+    		msg.post("/gun","flipGun",{flipOrUnflip=false})
     		
     		isWalking=true
     		
@@ -250,7 +271,6 @@ function on_message(self, message_id, message, sender)
 end
 
 function flipChatacter(flip)
-
 	sprite.set_hflip("#sprite", flip)
 end
 

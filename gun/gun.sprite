@@ -1,0 +1,4 @@
+tile_set: "/gun/graphics/guns.atlas"
+default_animation: "gun1"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

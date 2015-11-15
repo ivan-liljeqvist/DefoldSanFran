@@ -1,0 +1,4 @@
+tile_set: "/foreground/graphics/darkness.atlas"
+default_animation: "blackbox"
+material: "/foreground/material/dark.material"
+blend_mode: BLEND_MODE_ALPHA

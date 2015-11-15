@@ -1,0 +1,9 @@
+images {
+  image: "/gun/graphics/images/gun3.png"
+}
+images {
+  image: "/gun/graphics/images/gun2.png"
+}
+images {
+  image: "/gun/graphics/images/gun1.png"
+}

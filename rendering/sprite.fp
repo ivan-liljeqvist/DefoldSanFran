@@ -10,3 +10,5 @@ void main()
     lowp vec4 tint_pm = vec4(tint.xyz * tint.w, tint.w);
     gl_FragColor = texture2D(DIFFUSE_TEXTURE, var_texcoord0.xy) * tint_pm;
 }
+
+

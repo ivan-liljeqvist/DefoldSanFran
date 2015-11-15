@@ -7,6 +7,10 @@ function init(self)
 	self.look_at = self.pos
     -- Store measured speed
 	self.speed = 0
+	
+	local pos=go.get_position();
+	pos.z=1;
+	go.set_position(pos)
 end
 function update(self, dt)
 	

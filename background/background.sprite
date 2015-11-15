@@ -1,4 +1,4 @@
 tile_set: "/background/graphics/background.atlas"
-default_animation: "bg-gray-origami"
-material: "/builtins/materials/sprite.material"
+default_animation: "forest"
+material: "/rendering/sprite.material"
 blend_mode: BLEND_MODE_ALPHA
