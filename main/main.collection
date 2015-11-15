@@ -43,8 +43,8 @@ instances {
   id: "foreground"
   prototype: "/foreground/foreground.go"
   position {
-    x: 417.27438
-    y: 351.7254
+    x: 687.6578
+    y: 578.71063
     z: 2.0
   }
   rotation {
@@ -54,8 +54,8 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 3.5
-    y: 2.5
+    x: 5.2
+    y: 3.8
     z: 1.0
   }
 }

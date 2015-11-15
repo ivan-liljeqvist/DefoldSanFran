@@ -1,6 +1,13 @@
+
+local heroPosition=vmath.vector4(0,0,0,0);
+
 function init(self)
     -- Add initialization code here
     -- Remove this function if not needed
+    
+    
+    
+
 end
 
 function final(self)
@@ -10,7 +17,12 @@ end
 
 function update(self, dt)
   
+  
+	
+	
 end
+
+local wolfCreated=false;
 
 function on_message(self, message_id, message, sender)
 
@@ -25,6 +37,15 @@ function on_message(self, message_id, message, sender)
         local pos = go.get_position();
         pos.x=pos.x-4;
         go.set_position(pos);
+    
+    elseif message_id==hash("updateHeroPosition") then
+    
+    	heroPosition=message.heroPosition;
+    	
+    	if not wolfCreated then
+    		local wolf = factory.create("#factory", heroPosition, nil, {}, nil)
+    		wolfCreated=true
+    	end
         
     end
     

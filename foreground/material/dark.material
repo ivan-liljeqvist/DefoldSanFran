@@ -41,3 +41,7 @@ fragment_constants {
   name: "heroRelativePosition"
   type: CONSTANT_TYPE_USER
 }
+fragment_constants {
+  name: "time"
+  type: CONSTANT_TYPE_USER
+}

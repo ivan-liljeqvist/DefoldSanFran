@@ -43,3 +43,18 @@ components {
     w: 1.0
   }
 }
+components {
+  id: "sprite1"
+  component: "/background/background.sprite"
+  position {
+    x: 3875.6692
+    y: -6.0494146
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}

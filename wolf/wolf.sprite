@@ -1,0 +1,4 @@
+tile_set: "/wolf/graphics/wolf.atlas"
+default_animation: "wolf"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

@@ -10,8 +10,8 @@ render = /rendering/myrender.renderc
 game_binding = /input/game.input_bindingc
 
 [display]
-width = 980
-height = 700
+width = 1480
+height = 1000
 
 [physics]
 scale = 0.02

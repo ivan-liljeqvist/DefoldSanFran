@@ -1,3 +1,6 @@
+
+local screen_width = tonumber(sys.get_config("display.width"));
+
 function init(self)
     -- Add initialization code here
     -- Remove this function if not needed
@@ -13,14 +16,23 @@ function update(self, dt)
     -- Remove this function if not needed
     
     sprite.set_constant("#sprite", "windowSize", vmath.vector4(tonumber(sys.get_config("display.width")),tonumber(sys.get_config("display.height")),0.0,0.0));
+	sprite.set_constant("#sprite", "time", vmath.vector4(dt,0.0,0.0,0.0));
 	
 end
 
 function on_message(self, message_id, message, sender)
 
+	local pos=go.get_position();
+
 	if message_id==hash("updateHeroRelativePosition") then
 		sprite.set_constant("#sprite", "heroRelativePosition", message.heroRelativePosition);
+	elseif message_id==hash("moveDarknessLeft") then
+		pos.x=pos.x-screen_width;
+	elseif message_id==hash("moveDarknessRight") then
+		pos.x=pos.x+screen_width;
 	end    
+	
+	go.set_position(pos);
 
 end
 
