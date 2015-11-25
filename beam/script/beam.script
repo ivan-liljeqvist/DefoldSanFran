@@ -7,6 +7,10 @@
 function init(self)
     self.flyingFire=false;
     self.facingRight=true;
+    
+    print("beam init")
+    
+    
 end
 
 function final(self)
@@ -40,7 +44,16 @@ function on_message(self, message_id, message, sender)
    		end
    	
    	elseif message_id==hash("changeFacingDirection")then
+   		
+   		print("changeFacingDirection")
+   		
    		self.facingRight=message.facingRight;
+   		
+   		local currentRotation=go.get_rotation()
+   		
+
+   		
+   		go.set_rotation(currentRotation)
    	end
     
 end
@@ -51,8 +64,9 @@ end
 
 function moveFire(timeDiff,self)
 		local pos=go.get_position();
+	
 		
-		if self.facingRight>0 then
+		if self.facingRight then
     		pos.x=pos.x+1000*timeDiff;
     	else 
     		pos.x=pos.x-1000*timeDiff;
