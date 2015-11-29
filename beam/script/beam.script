@@ -1,12 +1,13 @@
 
 
 
-
+local TIMER_TO_DIE_THRESHOLD=1.0
 
 
 function init(self)
     self.flyingFire=false;
     self.facingRight=true;
+    self.timerToDie=0.0
     
     print("beam init")
     
@@ -21,9 +22,16 @@ end
 function update(self, dt)
 
 	
+	
     
 	if(self.flyingFire)then
+		self.timerToDie=self.timerToDie+(2*dt)
 		moveFire(dt,self)
+		
+		if(self.timerToDie>TIMER_TO_DIE_THRESHOLD)then
+			go.delete(go.get_id())
+			self.flyingFire=false
+		end
 	end
 	
 end
@@ -37,6 +45,8 @@ function on_message(self, message_id, message, sender)
     elseif message_id==hash("moveFire") then
     	print("movefire");
     	self.flyingFire=true;
+    	
+
 
     elseif message_id==hash("updateHeroPosition")then
 		if not self.flyingFire then
