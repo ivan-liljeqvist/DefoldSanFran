@@ -66,7 +66,7 @@ function init(self)
 
 	self.currentBeam=nil;
 	
-	msg.post(self.currentBeam,"changeFacingDirection",{facingRight=self.direction});
+	
 	
     -- Add initialization code here
     -- Remove this function if not needed
@@ -133,7 +133,7 @@ function update(self, dt)
 	local lastX=pos.x;
 
     
-    
+    msg.post(self.currentBeam,"changeFacingDirection",{facingRight=self.direction});
 	
     --print(render.get_window_height());
 	-- determine the target speed based on input

@@ -45,13 +45,19 @@ function on_message(self, message_id, message, sender)
    	
    	elseif message_id==hash("changeFacingDirection")then
    		
-   		print("changeFacingDirection")
+   		
    		
    		self.facingRight=message.facingRight;
    		
+   		print("changeFacingDirection new direction: "..self.facingRight)
+   		
    		local currentRotation=go.get_rotation()
    		
-
+		if(self.facingRight<0)then
+			currentRotation.z=math.pi*2
+		else 
+			currentRotation.z=0.0
+		end
    		
    		go.set_rotation(currentRotation)
    	end
@@ -66,7 +72,7 @@ function moveFire(timeDiff,self)
 		local pos=go.get_position();
 	
 		
-		if self.facingRight then
+		if self.facingRight>0 then
     		pos.x=pos.x+1000*timeDiff;
     	else 
     		pos.x=pos.x-1000*timeDiff;
