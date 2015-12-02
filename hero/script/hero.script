@@ -31,6 +31,7 @@ local anim_fall = hash("walk")
 
 local cameraScreen=1;
 local screen_width = tonumber(sys.get_config("display.width"));
+local screen_height = tonumber(sys.get_config("display.height"));
 
 local fireActive=false;
 local stopFire=false;
@@ -38,6 +39,7 @@ local stopFire=false;
 
 
 function fire(self)
+
 	if not fireActive and not stopFire then
 		fireActive=true;
 		

@@ -38,12 +38,14 @@ end
 
 function on_message(self, message_id, message, sender)
     
-    if message_id==hash("startParticles") then
+    if message_id == hash("contact_point_response") then
+   		 --delete the beam when it collides with something
+   		 go.delete(go.get_id())
+  	elseif message_id==hash("startParticles") then
     	particlefx.play("#particlefx")
     	particlefx.set_constant("#particlefx", "emitter1", "rotation", vmath.vector4(100, 0, 0, 1))
     	
     elseif message_id==hash("moveFire") then
-    	print("movefire");
     	self.flyingFire=true;
     	
 
@@ -55,11 +57,7 @@ function on_message(self, message_id, message, sender)
    	
    	elseif message_id==hash("changeFacingDirection")then
    		
-   		
-   		
    		self.facingRight=message.facingRight;
-   		
-   		print("changeFacingDirection new direction: "..self.facingRight)
    		
    		local currentRotation=go.get_rotation()
    		
@@ -73,6 +71,7 @@ function on_message(self, message_id, message, sender)
    	end
     
 end
+
 
 function changeFacingDir()
 	print("!");
