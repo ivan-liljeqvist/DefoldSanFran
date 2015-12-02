@@ -119,4 +119,24 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "scoreGui"
+  prototype: "/gui/scoreGui.go"
+  position {
+    x: 595.4359
+    y: 287.2595
+    z: 4.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 20.0
+    y: 20.0
+    z: 20.0
+  }
+}
 scale_along_z: 0
